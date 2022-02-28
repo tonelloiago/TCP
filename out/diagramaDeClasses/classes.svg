@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="393px" preserveAspectRatio="none" style="width:404px;height:393px;background:#FFFFFF;" version="1.1" viewBox="0 0 404 393" width="404px" zoomAndPan="magnify"><defs><filter height="300%" id="f10a5pb926yqaf" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--MD5=[cc7199de7d3e82d413e313b3906f7f53]
+class Orquestrador--><rect codeLine="2" fill="#FEFECE" filter="url(#f10a5pb926yqaf)" height="48" id="Orquestrador" style="stroke:#A80036;stroke-width:1.5;" width="108" x="170" y="7"/><ellipse cx="185" cy="23" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M184.4688,29.9219 Q182.7188,29.9219 181.5781,29.1875 Q180.4531,28.4375 179.8906,27.0938 Q179.3438,25.7344 179.3438,23.9375 Q179.3438,21.9063 180,20.4531 Q180.6563,19 181.9375,18.2188 Q183.2188,17.4375 185.0938,17.4375 Q185.9844,17.4375 186.6563,17.625 Q187.3281,17.7969 188.0156,18.1406 L187.2031,20.1563 Q186.5781,19.8438 186.0313,19.7188 Q185.5,19.5938 185.0156,19.5938 Q183.8438,19.5938 183.1406,20.125 Q182.4375,20.6563 182.1406,21.6094 Q181.8438,22.5625 181.8438,23.8281 Q181.8438,25.8438 182.5625,26.8125 Q183.2813,27.7656 184.875,27.7656 Q185.4688,27.7656 186.0938,27.6094 Q186.7188,27.4531 187.5469,27.0781 L187.5469,29.2969 Q186.8125,29.6094 186.0156,29.7656 Q185.2344,29.9219 184.4688,29.9219 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="76" x="199" y="27.656">Orquestrador</text><line style="stroke:#A80036;stroke-width:1.5;" x1="171" x2="277" y1="39" y2="39"/><line style="stroke:#A80036;stroke-width:1.5;" x1="171" x2="277" y1="47" y2="47"/><!--MD5=[1779cf4dea73243dda24388918ce614c]
+class TradutorTextoComando--><rect codeLine="6" fill="#FEFECE" filter="url(#f10a5pb926yqaf)" height="48" id="TradutorTextoComando" style="stroke:#A80036;stroke-width:1.5;" width="166" x="50" y="115"/><ellipse cx="65" cy="131" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M64.4688,137.9219 Q62.7188,137.9219 61.5781,137.1875 Q60.4531,136.4375 59.8906,135.0938 Q59.3438,133.7344 59.3438,131.9375 Q59.3438,129.9063 60,128.4531 Q60.6563,127 61.9375,126.2188 Q63.2188,125.4375 65.0938,125.4375 Q65.9844,125.4375 66.6563,125.625 Q67.3281,125.7969 68.0156,126.1406 L67.2031,128.1563 Q66.5781,127.8438 66.0313,127.7188 Q65.5,127.5938 65.0156,127.5938 Q63.8438,127.5938 63.1406,128.125 Q62.4375,128.6563 62.1406,129.6094 Q61.8438,130.5625 61.8438,131.8281 Q61.8438,133.8438 62.5625,134.8125 Q63.2813,135.7656 64.875,135.7656 Q65.4688,135.7656 66.0938,135.6094 Q66.7188,135.4531 67.5469,135.0781 L67.5469,137.2969 Q66.8125,137.6094 66.0156,137.7656 Q65.2344,137.9219 64.4688,137.9219 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="134" x="79" y="135.656">TradutorTextoComando</text><line style="stroke:#A80036;stroke-width:1.5;" x1="51" x2="215" y1="147" y2="147"/><line style="stroke:#A80036;stroke-width:1.5;" x1="51" x2="215" y1="155" y2="155"/><!--MD5=[3947fcfebebf3a380209f6200e77d224]
+class AdaptadorMusical--><rect codeLine="10" fill="#FEFECE" filter="url(#f10a5pb926yqaf)" height="48" id="AdaptadorMusical" style="stroke:#A80036;stroke-width:1.5;" width="130" x="251" y="115"/><ellipse cx="266" cy="131" fill="#B4A7E5" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M262.0313,137.5 L262.0313,135.7969 L264.3906,135.5313 L264.3906,127.3281 L262.0313,127.0625 L262.0313,125.3594 L269.1719,125.3594 L269.1719,127.0625 L266.75,127.3281 L266.75,135.5313 L269.1719,135.7969 L269.1719,137.5 L262.0313,137.5 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="98" x="280" y="135.656">AdaptadorMusical</text><line style="stroke:#A80036;stroke-width:1.5;" x1="252" x2="380" y1="147" y2="147"/><line style="stroke:#A80036;stroke-width:1.5;" x1="252" x2="380" y1="155" y2="155"/><!--MD5=[07e5157f4f0a58f636fdf4028e244d0b]
+class AdaptadorJavaSound--><rect codeLine="14" fill="#FEFECE" filter="url(#f10a5pb926yqaf)" height="48" id="AdaptadorJavaSound" style="stroke:#A80036;stroke-width:1.5;" width="149" x="241.5" y="223"/><ellipse cx="256.5" cy="239" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M255.9688,245.9219 Q254.2188,245.9219 253.0781,245.1875 Q251.9531,244.4375 251.3906,243.0938 Q250.8438,241.7344 250.8438,239.9375 Q250.8438,237.9063 251.5,236.4531 Q252.1563,235 253.4375,234.2188 Q254.7188,233.4375 256.5938,233.4375 Q257.4844,233.4375 258.1563,233.625 Q258.8281,233.7969 259.5156,234.1406 L258.7031,236.1563 Q258.0781,235.8438 257.5313,235.7188 Q257,235.5938 256.5156,235.5938 Q255.3438,235.5938 254.6406,236.125 Q253.9375,236.6563 253.6406,237.6094 Q253.3438,238.5625 253.3438,239.8281 Q253.3438,241.8438 254.0625,242.8125 Q254.7813,243.7656 256.375,243.7656 Q256.9688,243.7656 257.5938,243.6094 Q258.2188,243.4531 259.0469,243.0781 L259.0469,245.2969 Q258.3125,245.6094 257.5156,245.7656 Q256.7344,245.9219 255.9688,245.9219 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="117" x="270.5" y="243.656">AdaptadorJavaSound</text><line style="stroke:#A80036;stroke-width:1.5;" x1="242.5" x2="389.5" y1="255" y2="255"/><line style="stroke:#A80036;stroke-width:1.5;" x1="242.5" x2="389.5" y1="263" y2="263"/><!--MD5=[56417687a4df0e197f9df99f622965c8]
+class comando--><rect codeLine="18" fill="#FEFECE" filter="url(#f10a5pb926yqaf)" height="48" id="comando" style="stroke:#A80036;stroke-width:1.5;" width="84" x="91" y="223"/><ellipse cx="106" cy="239" fill="#EB937F" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M102.3594,245.5 L102.3594,233.3594 L110.0156,233.3594 L110.0156,235.4844 L104.7344,235.4844 L104.7344,238.1406 L109.75,238.1406 L109.75,240.2656 L104.7344,240.2656 L104.7344,243.375 L110.0156,243.375 L110.0156,245.5 L102.3594,245.5 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="52" x="120" y="243.656">comando</text><line style="stroke:#A80036;stroke-width:1.5;" x1="92" x2="174" y1="255" y2="255"/><line style="stroke:#A80036;stroke-width:1.5;" x1="92" x2="174" y1="263" y2="263"/><!--MD5=[c920b772fbbe062e9b0b3d9eeccb67ec]
+class NotaMusical--><rect codeLine="22" fill="#FEFECE" filter="url(#f10a5pb926yqaf)" height="48" id="NotaMusical" style="stroke:#A80036;stroke-width:1.5;" width="102" x="7" y="331"/><ellipse cx="22" cy="347" fill="#EB937F" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M18.3594,353.5 L18.3594,341.3594 L26.0156,341.3594 L26.0156,343.4844 L20.7344,343.4844 L20.7344,346.1406 L25.75,346.1406 L25.75,348.2656 L20.7344,348.2656 L20.7344,351.375 L26.0156,351.375 L26.0156,353.5 L18.3594,353.5 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="70" x="36" y="351.656">NotaMusical</text><line style="stroke:#A80036;stroke-width:1.5;" x1="8" x2="108" y1="363" y2="363"/><line style="stroke:#A80036;stroke-width:1.5;" x1="8" x2="108" y1="371" y2="371"/><!--MD5=[5c83d5771288db71fc294a62ef8fd891]
+class comandoTecnico--><rect codeLine="26" fill="#FEFECE" filter="url(#f10a5pb926yqaf)" height="48" id="comandoTecnico" style="stroke:#A80036;stroke-width:1.5;" width="127" x="144.5" y="331"/><ellipse cx="159.5" cy="347" fill="#EB937F" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M155.8594,353.5 L155.8594,341.3594 L163.5156,341.3594 L163.5156,343.4844 L158.2344,343.4844 L158.2344,346.1406 L163.25,346.1406 L163.25,348.2656 L158.2344,348.2656 L158.2344,351.375 L163.5156,351.375 L163.5156,353.5 L155.8594,353.5 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="95" x="173.5" y="351.656">comandoTecnico</text><line style="stroke:#A80036;stroke-width:1.5;" x1="145.5" x2="270.5" y1="363" y2="363"/><line style="stroke:#A80036;stroke-width:1.5;" x1="145.5" x2="270.5" y1="371" y2="371"/><!--MD5=[e378fabf3c8e0198fac615ad32678b4f]
+reverse link AdaptadorMusical to AdaptadorJavaSound--><path d="M316,183.02 C316,196.58 316,211.04 316,222.68 " fill="none" id="AdaptadorMusical-backto-AdaptadorJavaSound" style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="none" points="309,183,316,163,323,183,309,183" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[7bbe9245f0aeed8e9c60dfcddaf4137d]
+reverse link comando to NotaMusical--><path d="M104.94,287.66 C94.69,302.15 83.42,318.07 74.5,330.68 " fill="none" id="comando-backto-NotaMusical" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="none" points="99.46,283.28,116.73,271,110.89,291.37,99.46,283.28" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[0b09b077fd92746b7e3fb42dedc5b13d]
+reverse link comando to comandoTecnico--><path d="M161.06,287.66 C171.31,302.15 182.58,318.07 191.5,330.68 " fill="none" id="comando-backto-comandoTecnico" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="none" points="155.11,291.37,149.27,271,166.54,283.28,155.11,291.37" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[828ad905d353f2fb71c06021dbbbbae7]
+link Orquestrador to TradutorTextoComando--><path codeLine="30" d="M204.25,55 C190.16,71.42 171.15,93.56 156.31,110.84 " fill="none" id="Orquestrador-to-TradutorTextoComando" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="153.02,114.68,161.9141,110.4499,156.274,110.8837,155.8401,105.2435,153.02,114.68" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[2f616dfcdd61707828d066988ec42fad]
+link Orquestrador to AdaptadorMusical--><path codeLine="31" d="M243.96,55 C258.21,71.42 277.43,93.56 292.43,110.84 " fill="none" id="Orquestrador-to-AdaptadorMusical" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="295.76,114.68,292.8843,105.2603,292.4837,110.903,286.8411,110.5024,295.76,114.68" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[2b61ac774488d9ff9d1bfc34451979ee]
+link TradutorTextoComando to comando--><path codeLine="32" d="M133,163 C133,179 133,200.45 133,217.53 " fill="none" id="TradutorTextoComando-to-comando" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="133,222.68,137,213.68,133,217.68,129,213.68,133,222.68" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[fb070aee1e4fe0bcbda1e1c6219100bf]
+@startuml classes
+
+class Orquestrador{
+
+}
+
+class TradutorTextoComando{
+
+}
+
+interface AdaptadorMusical{
+
+}
+
+class AdaptadorJavaSound implements AdaptadorMusical{
+    
+}
+
+enum comando{
+
+}
+
+enum NotaMusical extends comando{
+
+}
+
+enum comandoTecnico extends comando{
+
+}
+
+Orquestrador - -> TradutorTextoComando
+Orquestrador - -> AdaptadorMusical
+TradutorTextoComando - -> comando
+
+@enduml
+
+PlantUML version 1.2022.0(Tue Jan 11 13:16:42 BRT 2022)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg>

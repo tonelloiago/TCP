@@ -1,0 +1,35 @@
+@startuml classes
+
+class Orquestrador{
+
+}
+
+class TradutorTextoComando{
+
+}
+
+interface AdaptadorMusical{
+
+}
+
+class AdaptadorJavaSound implements AdaptadorMusical{
+    
+}
+
+enum comando{
+
+}
+
+enum NotaMusical extends comando{
+
+}
+
+enum comandoTecnico extends comando{
+
+}
+
+Orquestrador --> TradutorTextoComando
+Orquestrador --> AdaptadorMusical
+TradutorTextoComando --> comando
+
+@enduml
