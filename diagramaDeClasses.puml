@@ -1,35 +1,78 @@
 @startuml classes
 
 class Orquestrador{
+    + orquestrar()
+}
 
+class ControladorDeGui{
+    - estadoGui
+    + entraTexto():String
+    + abrir()
+    + fechar()
+}
+
+enum estadoGui{
+    + Standby
+    + ProcessandoMusica
+}
+
+class DecodificadorTexto{
+    + traduzTexto(String):Musica
 }
 
 class TradutorTextoComando{
-
+    + traduz(String):comando
 }
 
 interface AdaptadorMusical{
-
+    + tocarNota()
+    + aumentarOitava()
+    + reduzirOitava()
+    + aumentarVolume()
+    + reduzirVolume()
 }
 
-class AdaptadorJavaSound implements AdaptadorMusical{
-    
+class AdaptadorJFugue implements AdaptadorMusical{
+    - BPM
+    - Oitava
+    - Volume
+    - Instrumento
+}
+
+enum Instrumento{
+    - bateria
+    - piano
+    - guiatarra
 }
 
 enum comando{
-
+    + do
+    + re
+    + mi
+    + fa
+    + sol
+    + la
+    + si
+    ...
 }
 
-enum NotaMusical extends comando{
-
+class Musica{
+    - sequenciaDeComandos
 }
 
-enum comandoTecnico extends comando{
-
+class TocadorDeMusica{
+    + toca( Musica )
 }
 
-Orquestrador --> TradutorTextoComando
-Orquestrador --> AdaptadorMusical
+Orquestrador --> DecodificadorTexto
+Orquestrador --> TocadorDeMusica
+Orquestrador --> ControladorDeGui
+DecodificadorTexto --> TradutorTextoComando
+DecodificadorTexto --> Musica
+TocadorDeMusica --> AdaptadorMusical
 TradutorTextoComando --> comando
+ControladorDeGui --> estadoGui
+AdaptadorJFugue --> Instrumento
+
 
 @enduml
