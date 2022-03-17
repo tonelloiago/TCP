@@ -15,3 +15,8 @@ Repositorio para o desenvolvimento do projeto prático para a disciplina de Téc
 ![imagem](out/diagramaDeClasses/classes.svg)
 
 ## Croqui Telas
+
+
+## Auxiliar
+
+![notas-em-ingles](2022-03-17-19-24-54.png)

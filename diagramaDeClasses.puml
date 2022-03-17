@@ -20,12 +20,18 @@ class DecodificadorTexto{
     + traduzTexto(String):Musica
 }
 
-class TradutorTextoComando{
+interface TradutorTextoComando{
     + traduz(String):comando
 }
 
+class TradutorTextoParaComando implements TradutorTextoComando{}
+
+class ControladorMusical{
+    + executaMusica(Musica)
+}
+
 interface AdaptadorMusical{
-    + tocarNota()
+    + tocarNota(Comando)
     + aumentarOitava()
     + reduzirOitava()
     + aumentarVolume()
@@ -39,13 +45,21 @@ class AdaptadorJFugue implements AdaptadorMusical{
     - Instrumento
 }
 
+interface TradutorAdaptador{
+    + traduzParaAdaptador(Comando):String
+}
+
+class TradutorJFugue implements TradutorAdaptador{
+
+}
+
 enum Instrumento{
     - bateria
     - piano
     - guiatarra
 }
 
-enum comando{
+enum Comando{
     + do
     + re
     + mi
@@ -60,19 +74,17 @@ class Musica{
     - sequenciaDeComandos
 }
 
-class TocadorDeMusica{
-    + toca( Musica )
-}
 
 Orquestrador --> DecodificadorTexto
-Orquestrador --> TocadorDeMusica
+Orquestrador --> ControladorMusical
 Orquestrador --> ControladorDeGui
 DecodificadorTexto --> TradutorTextoComando
 DecodificadorTexto --> Musica
-TocadorDeMusica --> AdaptadorMusical
-TradutorTextoComando --> comando
+ControladorMusical --> AdaptadorMusical
+TradutorTextoComando --> Comando
 ControladorDeGui --> estadoGui
 AdaptadorJFugue --> Instrumento
+AdaptadorJFugue --> TradutorAdaptador
 
 
 @enduml
