@@ -19,6 +19,9 @@ public class TradutorTextoParaComando implements TradutorTextoComando{
                 return Do;
             case 'E':
             case 'e':
+                return Mi;
+            case 'D':
+            case 'd':
                 return Re;
             case 'F':
             case 'f':
