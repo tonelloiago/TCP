@@ -1,7 +1,9 @@
 @startuml classes
 
 class Orquestrador{
-    + orquestrar()
+    - DecodificadorTexto
+    - ControladorMusical
+    + orquestra( String )
 }
 
 class ControladorDeGui{
@@ -75,9 +77,9 @@ class Musica{
 }
 
 
-Orquestrador --> DecodificadorTexto
+ControladorDeGui --> Orquestrador
 Orquestrador --> ControladorMusical
-Orquestrador --> ControladorDeGui
+Orquestrador --> DecodificadorTexto
 DecodificadorTexto --> TradutorTextoComando
 DecodificadorTexto --> Musica
 ControladorMusical --> AdaptadorMusical

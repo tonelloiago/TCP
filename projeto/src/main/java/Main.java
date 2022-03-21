@@ -1,4 +1,3 @@
-import orquestrador.Orquestrador;
 import tela.ControladorDeGui;
 
 public class Main {
@@ -6,6 +5,7 @@ public class Main {
         //Orquestrador.orquestrar();
 
         ControladorDeGui interfaceDeUsuario = new ControladorDeGui();
+        interfaceDeUsuario.executa();
 
     }
 }
