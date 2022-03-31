@@ -1,6 +1,7 @@
 package orquestrador;
 
 import decodificadores.DecodificadorTexto;
+import decodificadores.validadores.ValidadorDeComando;
 import tela.Interface;
 import tocador.AdaptadorJfugue;
 import tocador.ControladorMusical;
@@ -14,7 +15,7 @@ public class Orquestrador {
     public Orquestrador(){
         final var tocadorMusica = new AdaptadorJfugue(new TradutorJfugue());
 
-        controladorMusical = new ControladorMusical(tocadorMusica);
+        controladorMusical = new ControladorMusical(tocadorMusica, new ValidadorDeComando());
 
         decodificadorTexto = new DecodificadorTexto(new TradutorTextoParaComando());
     }

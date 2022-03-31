@@ -1,5 +1,6 @@
 package tocador;
 
+import decodificadores.validadores.ValidadorDeComando;
 import entidades.Musica;
 import enums.Comando;
 
@@ -9,24 +10,22 @@ import static enums.Comando.*;
 
 public class ControladorMusical {
     private final  AdaptadorMusical adaptadorMusical;
-    final List<Comando> listaDeNotas = List.of(Do,Re,Mi,Fa,Sol,La,Si);
+    private final ValidadorDeComando validadorDeComando;
 
 
-    public ControladorMusical(AdaptadorMusical adaptadorMusical) {
+    public ControladorMusical(AdaptadorMusical adaptadorMusical, ValidadorDeComando validadorDeComando) {
         this.adaptadorMusical = adaptadorMusical;
+        this.validadorDeComando = validadorDeComando;
     }
 
     public void executaMusica(Musica musica){
         final var comandos = musica.getSequenciaDeComandos();
 
         comandos.forEach(comando -> {
-            if (eNota(comando)){
+            if (validadorDeComando.eNota(comando)){
                 adaptadorMusical.tocarNota(comando);
             }
         });
     }
 
-    private boolean eNota(Comando comando) {
-        return listaDeNotas.contains(comando);
-    }
 }
