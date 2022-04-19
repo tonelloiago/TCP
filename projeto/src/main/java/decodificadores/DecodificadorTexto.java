@@ -2,7 +2,7 @@ package decodificadores;
 
 import entidades.Musica;
 import enums.Comando;
-import tradutores.TradutorTextoComando;
+import decodificadores.tradutores.TradutorTextoComando;
 
 import java.util.List;
 import java.util.function.Function;
@@ -27,7 +27,11 @@ public class DecodificadorTexto {
     }
 
     private Function<Character, Comando> paraComando() {
-        return tradutorTextoComando::traduz;
+        return character -> {
+            final var comando = tradutorTextoComando.traduz(character);
+            tradutorTextoComando.defineUltimoCaracter(character);
+            return comando;
+        };
     }
 
     private List<Character> stringParaLista(String textoATraduzir) {

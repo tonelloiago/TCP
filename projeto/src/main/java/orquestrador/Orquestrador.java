@@ -3,10 +3,11 @@ package orquestrador;
 import decodificadores.DecodificadorTexto;
 import decodificadores.validadores.ValidadorDeComando;
 import tela.Interface;
+
 import tocador.AdaptadorJfugue;
 import tocador.ControladorMusical;
 import tocador.TradutorJfugue;
-import tradutores.TradutorTextoParaComando;
+import decodificadores.tradutores.TradutorTextoParaComando;
 
 public class Orquestrador {
     private final ControladorMusical controladorMusical;
