@@ -18,7 +18,9 @@ public class TradutorJfugue implements TradutorAdaptador{
             case Sol:
                 return "G";
             case La:
-                return "Si";
+                return "A";
+            case Si:
+                return "B";
             default:
                 return "";
         }

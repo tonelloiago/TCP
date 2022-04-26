@@ -2,6 +2,7 @@ package orquestrador;
 
 import decodificadores.DecodificadorTexto;
 import decodificadores.validadores.ValidadorDeComando;
+import jdk.swing.interop.SwingInterOpUtils;
 import tela.Interface;
 
 import tocador.AdaptadorJfugue;
