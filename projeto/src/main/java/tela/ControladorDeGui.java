@@ -1,6 +1,6 @@
 package tela;
-
 import orquestrador.Orquestrador;
+import java.io.IOException;
 
 public class ControladorDeGui extends Interface{
 
@@ -14,33 +14,41 @@ public class ControladorDeGui extends Interface{
     public void executa(){
         this.texto = "";
         this.abrirTela();
-        this.monitorDeEvento();
+        this.monitorDeEventoConverter();
+        this.monitorDeAnexoDeArquivo();
     }
 
-    private void monitorDeEvento() {
-
-        /*
-         Adiciona um monitor de evento de botao
-         Retorna o texto digitado na interface quando o botao é pressionado
-         */
-        converterButton.addActionListener(actionEvent -> processaMusica());
-
+    private void monitorDeEventoConverter() {
+        converterButton.addActionListener(actionEvent -> {
+            try {
+                processaMusica();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
     }
 
-    private void entraTexto() {
+    private void monitorDeAnexoDeArquivo() {
+        anexarArquivo.addActionListener(actionEvent -> anexarArquivo());
+    }
+
+    private void entraTexto() throws IOException {
         this.texto = textArea.getText();
+
+        if(leitor.getTemArquivo()) {
+            this.texto += leitor.getConteudoDoArquivo();
+        }
+
+        System.out.println(this.texto);
     }
 
     //Pode ser quebrada em outra classe
     //Tirar responsabilidade da GUI de processar o texto
-    private void processaMusica() {
-
-        String stringVazia = "";
+    private void processaMusica() throws IOException {
 
         this.entraTexto();
 
-        if(!this.texto.equals(stringVazia)) {
-
+        if(!this.texto.isBlank()) {
 
             try {
 

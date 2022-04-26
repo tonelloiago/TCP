@@ -1,5 +1,7 @@
 package tela;
 
+import leitor.LeitorDeArquivo;
+
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
@@ -8,9 +10,12 @@ public class Interface extends JFrame {
 
 	//Componentes da interface
 	public JTextArea textArea;
-	private JComboBox<String> instrumentsList;
-	private final String[] instruments;
+	private JTextField caminhoDoArquivoTextField;
+	protected JComboBox<String> instrumentsList;
+	protected final String[] instruments;
 	public JButton converterButton;
+	public JButton anexarArquivo;
+	protected LeitorDeArquivo leitor;
 
 	//Dimensoes da tela
 	final int windowWidth = 800;
@@ -19,16 +24,20 @@ public class Interface extends JFrame {
 	public Interface() {
 
 		setLayout(null);
-
 		this.instruments = new String[]{"Violão", "Guitarra", "Bateria", "Piano"};
+		this.leitor = new LeitorDeArquivo();
 
 		setTextArea();
 		setInstrumentsComboBox();
 		setConverterButton();
+		setAnexarArquivo();
+		setCaminhoDoArquivoTextField();
 
 		add(this.instrumentsList);
 		add(this.textArea);
 		add(this.converterButton);
+		add(this.anexarArquivo);
+		add(this.caminhoDoArquivoTextField);
 
 		setTitle("Gerador de Música");
 		setBounds(0,0, this.windowWidth, this.windowHeigth);
@@ -49,9 +58,21 @@ public class Interface extends JFrame {
 
 		this.textArea = new JTextArea();
 		this.setTextAreaBorder();
-		//Fazer dinâmico
 		this.textArea.setBounds(50,50,500,300);
 
+	}
+
+	private void setCaminhoDoArquivoTextField() {
+
+		this.caminhoDoArquivoTextField = new JTextField();
+		this.caminhoDoArquivoTextField.setBounds(50, 400, 300, 30);
+		this.caminhoDoArquivoTextField.setEditable(false);
+		this.caminhoDoArquivoTextField.setText("C:\\");
+
+	}
+
+	private void atualizaCaminhoDoArquivoTextField(String path) {
+		this.caminhoDoArquivoTextField.setText(path);
 	}
 
 	private void setInstrumentsComboBox( ) {
@@ -66,7 +87,22 @@ public class Interface extends JFrame {
 		this.converterButton = new JButton();
 		this.converterButton.setBounds(600, 70, 150, 30);
 		this.converterButton.setText("Converter");
-
 	}
+
+	private void setAnexarArquivo() {
+		this.anexarArquivo = new JButton();
+		this.anexarArquivo.setBounds(400, 400, 150, 30);
+		this.anexarArquivo.setText("Escolher Arquivo");
+	}
+
+	protected void anexarArquivo() {
+		//Abre o gerenciador para encontrar um arquivo
+		this.leitor.abrirFileSystemView();
+
+		if(this.leitor.getTemArquivo()) {
+			atualizaCaminhoDoArquivoTextField(this.leitor.getCaminhoDoArquivo());
+		}
+	}
+
 
 }
