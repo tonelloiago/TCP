@@ -24,4 +24,5 @@ public class ValidadorDeComando {
     public Boolean eComandoDeInstrumento(Comando comando){
         return LISTA_DE_INSTRUMENTOS.contains(comando);
     }
+    public Boolean eComandoDeIncrementaInstrumento(Comando comando){return IncrementaInstrumento==comando;}
 }

@@ -77,6 +77,4 @@ public class DecodificadorTexto {
     private IntFunction<Character> intParaChar() {
         return letra -> (char) letra;
     }
-
-    ;
 }

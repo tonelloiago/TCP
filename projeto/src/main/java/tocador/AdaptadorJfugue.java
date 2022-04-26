@@ -61,7 +61,8 @@ public class AdaptadorJfugue implements AdaptadorMusical {
         this.currentInstrument = currentInstrument+incremento;
     }
 
-    public void setCurrentInstrument(int novoInstumento) {
-        this.currentInstrument = novoInstumento;
+    @Override
+    public void setInstrumento(Comando comando) {
+        this.currentInstrument = Integer.parseInt(tradutorAdaptador.traduzParaAdapatador(comando));
     }
 }
