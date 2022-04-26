@@ -1,27 +1,25 @@
 package entidades;
 
-import enums.Comando;
-
 import java.util.Collections;
 import java.util.List;
 
 public class Musica {
-    private List<Comando> sequenciaDeComandos;
+    private List<VisaoDeComando> sequenciaDeComandos;
 
-    public Musica(List<Comando> sequenciaDeComandos) {
+    public Musica(List<VisaoDeComando> sequenciaDeComandos) {
         this.sequenciaDeComandos = sequenciaDeComandos;
     }
 
-    public List<Comando> getSequenciaDeComandos() {
+    public List<VisaoDeComando> getSequenciaDeVisaoDeComandos() {
         return sequenciaDeComandos;
     }
 
-    public void setSequenciaDeComandos(List<Comando> sequenciaDeComandos) {
+    public void setSequenciaDeVisaoDeComandos(List<VisaoDeComando> sequenciaDeComandos) {
         this.sequenciaDeComandos = sequenciaDeComandos;
     }
 
-    public void addComando(Comando comando){
-        sequenciaDeComandos.add(comando);
+    public void addVisaoDeComando(VisaoDeComando visaoDeComando){
+        sequenciaDeComandos.add(visaoDeComando);
     }
 
     public void limpaMusica(){

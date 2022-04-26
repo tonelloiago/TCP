@@ -1,5 +1,6 @@
 package decodificadores.tradutores;
 
+import entidades.VisaoDeComando;
 import enums.Comando;
 
 import java.util.List;

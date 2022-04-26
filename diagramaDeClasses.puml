@@ -72,6 +72,13 @@ enum Instrumento{
     - guiatarra
 }
 
+class VisaoDeComando{
+    - Comando:Comando
+    - Repeticao:Int
+    + setRepeticao(Int)
+    + incRepeticao()
+}
+
 enum Comando{
     + do
     + re

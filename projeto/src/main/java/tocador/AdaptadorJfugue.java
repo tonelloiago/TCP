@@ -1,14 +1,14 @@
 package tocador;
 
 import enums.Comando;
+import org.jfugue.pattern.Pattern;
 import org.jfugue.player.Player;
-
-import java.util.List;
-
 
 public class AdaptadorJfugue implements AdaptadorMusical {
     private final TradutorAdaptador tradutorAdaptador;
     private final Player player = new Player();
+
+    private int currentInstrument = 1;
 
     public AdaptadorJfugue(TradutorAdaptador tradutorAdaptador) {
         this.tradutorAdaptador = tradutorAdaptador;
@@ -18,7 +18,22 @@ public class AdaptadorJfugue implements AdaptadorMusical {
     @Override
     public void tocarNota(Comando comando) {
             final var notaTraduzida = tradutorAdaptador.traduzParaAdapatador(comando);
-            player.play(notaTraduzida);
+            final var pattern = criaPattern(1,notaTraduzida);
+            player.play(pattern);
+    }
+
+    @Override
+    public void tocarNota(Comando comando, int repeticoes) {
+        final var notaTraduzida = tradutorAdaptador.traduzParaAdapatador(comando);
+        final var pattern = criaPattern(repeticoes, notaTraduzida);
+        player.play(pattern);
+    }
+
+    private Pattern criaPattern(int repeticoes, String notaTraduzida) {
+        final var pattern = new Pattern();
+        pattern.setInstrument(this.currentInstrument);
+        pattern.add(notaTraduzida, repeticoes);
+        return pattern;
     }
 
     @Override
@@ -39,5 +54,14 @@ public class AdaptadorJfugue implements AdaptadorMusical {
     @Override
     public void reduzirVolume() {
 
+    }
+
+    @Override
+    public void incrementeInstrumento(int incremento) {
+        this.currentInstrument = currentInstrument+incremento;
+    }
+
+    public void setCurrentInstrument(int novoInstumento) {
+        this.currentInstrument = novoInstumento;
     }
 }

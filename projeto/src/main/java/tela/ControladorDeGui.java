@@ -38,8 +38,6 @@ public class ControladorDeGui extends Interface{
         if(leitor.getTemArquivo()) {
             this.texto += leitor.getConteudoDoArquivo();
         }
-
-        System.out.println(this.texto);
     }
 
     //Pode ser quebrada em outra classe
@@ -59,7 +57,7 @@ public class ControladorDeGui extends Interface{
 
                 //Faz algo
                 System.out.println("Chegou aqui");
-
+                e.printStackTrace();
             }
         }
     }
