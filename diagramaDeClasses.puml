@@ -4,6 +4,7 @@ class Orquestrador{
     - DecodificadorTexto
     - ControladorMusical
     + orquestra( String , Boolean)
+    + definirInstrumento(String)
 }
 
 class ControladorDeGui{
@@ -36,6 +37,7 @@ class TradutorTextoParaComando implements TradutorTextoComando{}
 
 class ControladorMusical{
     + executaMusica(Musica,Boolean)
+    + defineInstrumento(Musica)
 }
 
 interface AdaptadorMusical{
@@ -44,6 +46,8 @@ interface AdaptadorMusical{
     + reduzirOitava()
     + aumentarVolume()
     + reduzirVolume()
+    + defineInstrumento(Comando)
+    + incrementaInstrumento(int)
     + salvaMusica()
 }
 
@@ -72,13 +76,6 @@ enum Instrumento{
     - guiatarra
 }
 
-class VisaoDeComando{
-    - Comando:Comando
-    - Repeticao:Int
-    + setRepeticao(Int)
-    + incRepeticao()
-}
-
 enum Comando{
     + do
     + re
@@ -91,7 +88,14 @@ enum Comando{
 }
 
 class Musica{
-    - sequenciaDeComandos
+    - sequenciaDeVisaoDeComando
+}
+
+class VisaoDeComando{
+    - Comando
+    - Repeticoes
+    + setRepeticoes(int)
+    + incRepeticoes()
 }
 
 class ValidadorDeComando{
@@ -116,6 +120,7 @@ TradutorTextoComando --> Comando
 ControladorDeGui --> estadoGui
 AdaptadorJFugue --> Instrumento
 AdaptadorJFugue --> TradutorAdaptador
+Musica --> VisaoDeComando
 
 
 @enduml
