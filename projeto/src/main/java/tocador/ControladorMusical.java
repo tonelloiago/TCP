@@ -26,6 +26,10 @@ public class ControladorMusical {
         visaoDeComandos.forEach(tocaNota());
     }
 
+    public void defineInstrumento(Comando comando){
+        adaptadorMusical.setInstrumento(comando);
+    }
+
     private Consumer<VisaoDeComando> tocaNota() {
         return visaoDeComando -> {
             final var comando = visaoDeComando.getComando();

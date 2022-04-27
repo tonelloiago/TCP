@@ -1,10 +1,13 @@
 package tela;
 
+import enums.Comando;
 import leitor.LeitorDeArquivo;
 
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
+import java.util.Arrays;
+import java.util.function.Predicate;
 
 public class Interface extends JFrame {
 
@@ -24,7 +27,7 @@ public class Interface extends JFrame {
 	public Interface() {
 
 		setLayout(null);
-		this.instruments = new String[]{"Violão", "Guitarra", "Bateria", "Piano"};
+		this.instruments = new String[]{Comando.Flute.name(),Comando.Agogo.name(),Comando.Organ.name(),Comando.Bells.name()};
 		this.leitor = new LeitorDeArquivo();
 
 		setTextArea();
@@ -104,5 +107,18 @@ public class Interface extends JFrame {
 		}
 	}
 
+	public Comando getInstrumentoSelecionado(){
+		final var comandos = Comando.values();
 
+		return Arrays.stream(comandos).filter(porInstrumentoSelecionado()).findFirst().orElse(Comando.IncrementaInstrumento);
+	}
+
+	private Predicate<Comando> porInstrumentoSelecionado() {
+		return comando -> comando.name().equals(this.instrumentsList.getSelectedItem());
+	}
+
+	public String getText(){
+		// Adicionar logica de uniao de arquivo com texto
+		return this.textArea.getText();
+	}
 }

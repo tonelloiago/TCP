@@ -2,6 +2,7 @@ package orquestrador;
 
 import decodificadores.DecodificadorTexto;
 import decodificadores.validadores.ValidadorDeComando;
+import enums.Comando;
 import jdk.swing.interop.SwingInterOpUtils;
 import tela.Interface;
 
@@ -26,5 +27,9 @@ public class Orquestrador {
     public void orquestrar(String textoUsuario){
         final var musica = decodificadorTexto.traduzTexto(textoUsuario);
         controladorMusical.executaMusica(musica);
+    }
+
+    public void defineInstrumento(Comando comando){
+        controladorMusical.defineInstrumento(comando);
     }
 }

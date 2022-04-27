@@ -1,5 +1,9 @@
 package tela;
+import com.sun.tools.jconsole.JConsoleContext;
+import jdk.swing.interop.SwingInterOpUtils;
 import orquestrador.Orquestrador;
+
+import java.awt.event.ActionEvent;
 import java.io.IOException;
 
 public class ControladorDeGui extends Interface{
@@ -44,19 +48,14 @@ public class ControladorDeGui extends Interface{
     //Tirar responsabilidade da GUI de processar o texto
     private void processaMusica() throws IOException {
 
-        this.entraTexto();
+        final var texto = this.getText();
 
-        if(!this.texto.isBlank()) {
 
+        if(!texto.isBlank()) {
             try {
-
+                orquestrador.defineInstrumento(this.getInstrumentoSelecionado());
                 orquestrador.orquestrar(texto);
-
-
             }catch (Exception e) {
-
-                //Faz algo
-                System.out.println("Chegou aqui");
                 e.printStackTrace();
             }
         }
