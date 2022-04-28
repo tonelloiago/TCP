@@ -55,6 +55,7 @@ public class ControladorDeGui extends Interface{
         if(!this.texto.isBlank()) {
 
             try {
+                orquestrador.defineInstrumento(this.getInstrumentoSelecionado());
                 orquestrador.orquestrar(texto);
             }catch (Exception e) {
                 e.printStackTrace();
