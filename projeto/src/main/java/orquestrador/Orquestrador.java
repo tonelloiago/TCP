@@ -26,7 +26,7 @@ public class Orquestrador {
 
     public void orquestrar(String textoUsuario){
         final var musica = decodificadorTexto.traduzTexto(textoUsuario);
-        controladorMusical.executaMusica(musica);
+        controladorMusical.executaMusica(musica,true);
     }
 
     public void defineInstrumento(Comando comando){

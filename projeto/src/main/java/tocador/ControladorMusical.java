@@ -20,10 +20,16 @@ public class ControladorMusical {
         this.validadorDeComando = validadorDeComando;
     }
 
-    public void executaMusica(Musica musica){
+    public void executaMusica(Musica musica, boolean salvaMusica){
         final var visaoDeComandos = musica.getSequenciaDeVisaoDeComandos();
 
         visaoDeComandos.forEach(tocaNota());
+
+        if (salvaMusica){
+            this.adaptadorMusical.salvaMusica();
+        }
+
+        this.adaptadorMusical.limpaMusica();
     }
 
     public void defineInstrumento(Comando comando){

@@ -12,4 +12,8 @@ public interface AdaptadorMusical {
     void reduzirVolume();
     void incrementeInstrumento(int incremento);
     void setInstrumento(Comando comando);
+
+    void limpaMusica();
+
+    void salvaMusica();
 }

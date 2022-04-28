@@ -3,12 +3,17 @@ package tocador;
 import enums.Comando;
 import org.jfugue.pattern.Pattern;
 import org.jfugue.player.Player;
+import tocador.downloader.DownloaderJfugue;
+
+import java.io.IOException;
 
 public class AdaptadorJfugue implements AdaptadorMusical {
     private final TradutorAdaptador tradutorAdaptador;
     private final Player player = new Player();
 
     private int currentInstrument = 1;
+
+    private Pattern pattern_criado = new Pattern();
 
     public AdaptadorJfugue(TradutorAdaptador tradutorAdaptador) {
         this.tradutorAdaptador = tradutorAdaptador;
@@ -33,6 +38,7 @@ public class AdaptadorJfugue implements AdaptadorMusical {
         final var pattern = new Pattern();
         pattern.setInstrument(this.currentInstrument);
         pattern.add(notaTraduzida, repeticoes);
+        this.pattern_criado.add(pattern);
         return pattern;
     }
 
@@ -64,5 +70,18 @@ public class AdaptadorJfugue implements AdaptadorMusical {
     @Override
     public void setInstrumento(Comando comando) {
         this.currentInstrument = Integer.parseInt(tradutorAdaptador.traduzParaAdapatador(comando));
+    }
+
+    @Override
+    public void limpaMusica() {
+        this.pattern_criado.clear();
+    }
+
+    public void salvaMusica(){
+        try {
+            DownloaderJfugue.downloadMusica(this.pattern_criado);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
