@@ -1,51 +1,63 @@
 package tela;
 
-import enums.Comando;
 import leitor.LeitorDeArquivo;
 
 import javax.swing.*;
 import javax.swing.border.Border;
+import javax.swing.filechooser.FileSystemView;
 import java.awt.*;
-import java.util.Arrays;
-import java.util.function.Predicate;
 
 public class Interface extends JFrame {
 
 	//Componentes da interface
-	public JTextArea textArea;
+	private JTextArea textArea;
 	private JTextField caminhoDoArquivoTextField;
-	protected JComboBox<String> instrumentsList;
-	protected final String[] instruments;
-	public JButton converterButton;
-	public JButton anexarArquivo;
-	protected LeitorDeArquivo leitor;
+	protected JComboBox<String> itens;
+	protected JButton converterButton;
+	protected JButton anexarArquivo;
+	protected transient LeitorDeArquivo leitor;
 
 	//Dimensoes da tela
-	final int windowWidth = 800;
-	final int windowHeigth = 600;
+	static final int LARGURA = 800;
+	static final int ALTURA = 600;
 
 	public Interface() {
 
 		setLayout(null);
-		this.instruments = new String[]{Comando.Flute.name(),Comando.Agogo.name(),Comando.Organ.name(),Comando.Bells.name()};
 		this.leitor = new LeitorDeArquivo();
 
 		setTextArea();
-		setInstrumentsComboBox();
+		setComboBox();
 		setConverterButton();
 		setAnexarArquivo();
 		setCaminhoDoArquivoTextField();
 
-		add(this.instrumentsList);
+		add(this.itens);
 		add(this.textArea);
 		add(this.converterButton);
 		add(this.anexarArquivo);
 		add(this.caminhoDoArquivoTextField);
 
-		setTitle("Gerador de Música");
-		setBounds(0,0, this.windowWidth, this.windowHeigth);
+		setBounds(0,0, LARGURA, ALTURA);
 
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+	}
+
+	public String getConteudoTextArea() {
+		return this.textArea.getText();
+	}
+
+	public void abrirGerenciadorDeArquivos() {
+
+		JFileChooser fileChooser = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
+
+		int achouArquivo = fileChooser.showOpenDialog(null);
+
+		if (achouArquivo == JFileChooser.APPROVE_OPTION) {
+			this.leitor.setArquivoAnexado(fileChooser.getSelectedFile());
+			this.leitor.setTemArquivo(true);
+
+		}
 	}
 
 	private void setTextAreaBorder() {
@@ -78,10 +90,10 @@ public class Interface extends JFrame {
 		this.caminhoDoArquivoTextField.setText(path);
 	}
 
-	private void setInstrumentsComboBox( ) {
+	private void setComboBox( ) {
 
-		this.instrumentsList = new JComboBox<>(this.instruments);
-		this.instrumentsList.setBounds(600, 150, 150, 30);
+		this.itens = new JComboBox<>();
+		this.itens.setBounds(600, 150, 150, 30);
 
 	}
 
@@ -98,27 +110,26 @@ public class Interface extends JFrame {
 		this.anexarArquivo.setText("Escolher Arquivo");
 	}
 
-	protected void anexarArquivo() {
+	protected void setTituloInterface(String titulo) {
+		setTitle(titulo);
+	}
+
+	protected void getArquivoDeTexto() {
 		//Abre o gerenciador para encontrar um arquivo
-		this.leitor.abrirFileSystemView();
+		this.abrirGerenciadorDeArquivos();
 
 		if(this.leitor.getTemArquivo()) {
 			atualizaCaminhoDoArquivoTextField(this.leitor.getCaminhoDoArquivo());
 		}
 	}
 
-	public Comando getInstrumentoSelecionado(){
-		final var comandos = Comando.values();
+	protected void setOpcoesComboBox(String[] itens) {
 
-		return Arrays.stream(comandos).filter(porInstrumentoSelecionado()).findFirst().orElse(Comando.IncrementaInstrumento);
+		for (String item: itens) {
+			this.itens.addItem(item);
+		}
+
 	}
 
-	private Predicate<Comando> porInstrumentoSelecionado() {
-		return comando -> comando.name().equals(this.instrumentsList.getSelectedItem());
-	}
 
-	public String getText(){
-		// Adicionar logica de uniao de arquivo com texto
-		return this.textArea.getText();
-	}
 }
