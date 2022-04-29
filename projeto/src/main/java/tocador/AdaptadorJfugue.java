@@ -48,27 +48,17 @@ public class AdaptadorJfugue implements AdaptadorMusical {
     }
 
     @Override
-    public void reduzirOitava() {
-
-    }
-
-    @Override
     public void aumentarVolume() {
 
     }
 
     @Override
-    public void reduzirVolume() {
-
-    }
-
-    @Override
-    public void incrementeInstrumento(int incremento) {
+    public void incrementaInstrumento(int incremento) {
         this.currentInstrument = currentInstrument+incremento;
     }
 
     @Override
-    public void setInstrumento(Comando comando) {
+    public void defineInstrumento(Comando comando) {
         this.currentInstrument = Integer.parseInt(tradutorAdaptador.traduzParaAdapatador(comando));
     }
 

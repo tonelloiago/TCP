@@ -28,8 +28,7 @@ public class DecodificadorTexto {
 
         listaDeCaracter.forEach( caracter -> {
             final var comando = tradutorTextoComando.traduz(caracter);
-            // ajustar definicao de ultimo caracter de acordo com nota ou nao
-            tradutorTextoComando.defineUltimoCaracter(caracter);
+
             if (comando == Comando.IncrementaInstrumento) {
                 listaDeVisaoDeComando.add(criaIncrementaInstrumento(caracter,comando));
             }
@@ -38,15 +37,16 @@ public class DecodificadorTexto {
             }else{
                 listaDeVisaoDeComando.add(new VisaoDeComando(comando));
             }
-        }
-        );
+        });
 
         return new Musica(listaDeVisaoDeComando);
     }
 
     private VisaoDeComando criaIncrementaInstrumento(Character caracter, Comando comando) {
         final var visaoDeComando = new VisaoDeComando(comando);
+
         visaoDeComando.setRepeticoes(Integer.parseInt(caracter.toString()));
+
         return visaoDeComando;
     }
 
@@ -54,20 +54,14 @@ public class DecodificadorTexto {
         if (listaDeVisaoDeComando.isEmpty()){
             return false;
         }
+
         Comando ultimoComando = getUltimaVisao(listaDeVisaoDeComando).getComando();
+
         return ultimoComando == comando && ultimoComando != Comando.IncrementaInstrumento;
     }
 
     private VisaoDeComando getUltimaVisao(List<VisaoDeComando> listaDeVisaoDeComando) {
         return listaDeVisaoDeComando.get(listaDeVisaoDeComando.size() - 1);
-    }
-
-    private Function<Character, VisaoDeComando> paraVisaoDeComandoComando() {
-        return character -> {
-            final var comando = tradutorTextoComando.traduz(character);
-            tradutorTextoComando.defineUltimoCaracter(character);
-            return new VisaoDeComando(comando);
-        };
     }
 
     private List<Character> stringParaLista(String textoATraduzir) {
