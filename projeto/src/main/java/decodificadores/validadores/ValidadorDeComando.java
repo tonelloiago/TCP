@@ -12,7 +12,7 @@ public class ValidadorDeComando {
     private static final List<Comando> LISTA_DE_INSTRUMENTOS = List.of(Agogo,Horpischord,Bells,Flute,Organ);
 
     public Boolean eNota(Comando comando){
-     return LISTA_DE_NOTAS.contains(comando);
+        return LISTA_DE_NOTAS.contains(comando);
     }
     public Boolean eComandoDeVolume(Comando comando){
         return Volume.equals(comando);
