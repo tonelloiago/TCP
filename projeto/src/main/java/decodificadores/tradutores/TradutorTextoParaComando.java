@@ -14,6 +14,15 @@ public class TradutorTextoParaComando implements TradutorTextoComando{
     private Character ultimoCaracter = ' ';
     @Override
     public Comando traduz(Character caracter) {
+        Comando comandoTraduzido = traduzNota(caracter);
+
+
+        defineUltimoCaracter(caracter);
+
+        return comandoTraduzido;
+    }
+
+    private Comando traduzNota(Character caracter) {
         if (notas.contains(caracter)) {
             return traduzNote(caracter);
         }

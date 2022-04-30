@@ -13,6 +13,14 @@ public class LeitorDeArquivo {
     private File arquivoAnexado;
     private boolean temArquivo;
 
+    public void setArquivoAnexado(File arquivoAnexado) {
+        this.arquivoAnexado = arquivoAnexado;
+    }
+
+    public void setTemArquivo(boolean temArquivo) {
+        this.temArquivo = temArquivo;
+    }
+
     public LeitorDeArquivo() {
         this.temArquivo = false;
     }

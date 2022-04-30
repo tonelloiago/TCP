@@ -7,7 +7,6 @@ import enums.Comando;
 
 import java.util.List;
 import java.util.function.Consumer;
-import java.util.function.Function;
 
 public class ControladorMusical {
     private final  AdaptadorMusical adaptadorMusical;
@@ -20,14 +19,20 @@ public class ControladorMusical {
         this.validadorDeComando = validadorDeComando;
     }
 
-    public void executaMusica(Musica musica){
+    public void executaMusica(Musica musica, boolean salvaMusica){
         final var visaoDeComandos = musica.getSequenciaDeVisaoDeComandos();
 
         visaoDeComandos.forEach(tocaNota());
+
+        if (salvaMusica){
+            this.adaptadorMusical.salvaMusica();
+        }
+
+        this.adaptadorMusical.limpaMusica();
     }
 
     public void defineInstrumento(Comando comando){
-        adaptadorMusical.setInstrumento(comando);
+        adaptadorMusical.defineInstrumento(comando);
     }
 
     private Consumer<VisaoDeComando> tocaNota() {
@@ -39,11 +44,11 @@ public class ControladorMusical {
             }
 
             if (validadorDeComando.eComandoDeIncrementaInstrumento(comando)){
-                adaptadorMusical.incrementeInstrumento(visaoDeComando.getRepeticoes());
+                adaptadorMusical.incrementaInstrumento(visaoDeComando.getRepeticoes());
             }
 
             if (validadorDeComando.eComandoDeInstrumento(comando)){
-                adaptadorMusical.setInstrumento(comando);
+                adaptadorMusical.defineInstrumento(comando);
             }
 
             //adicionar casos de oitava, volume,etc

@@ -12,6 +12,10 @@ Repositorio para o desenvolvimento do projeto prático para a disciplina de Téc
 + Permitir ao usuario selecionar o instrumento
 + Reproduzir uma serie de sons de acordo com a entrada do usuario
 
+## Rodar
+
+O arquivo .jar está disponivel na pasta target. Para build manual, utilizar `mvn clean install` para gerar .jar localmente.
+
 ## Diagrama de Classes
 
 ![imagem](out/diagramaDeClasses/classes.svg)

@@ -25,16 +25,18 @@ class TradutorTextoParaComandoTest {
 
     @Test
     void deveTraduzirLetraNotaMinusculaOndeUltimoComandoEraNota(){
+        dadoCaracter('D');
+        traduzCaracter();
         dadoCaracter('a');
-        dadoUltimoCaracter('D');
         traduzCaracter();
         entaoComandoTraduzidoE(Re);
     }
 
     @Test
     void deveTraduzirLetraNotaMinusculaOndeUltimoComandoNaoEraNota(){
+        dadoCaracter(',');
+        traduzCaracter();
         dadoCaracter('a');
-        dadoUltimoCaracter(',');
         traduzCaracter();
         entaoComandoTraduzidoE(Silencio);
     }
@@ -116,7 +118,7 @@ class TradutorTextoParaComandoTest {
         traduzCaracter();
         entaoComandoTraduzidoE(Fa);
 
-        dadoUltimoCaracter('&');
+        dadoUltimoCaracter(',');
         traduzCaracter();
         entaoComandoTraduzidoE(Silencio);
     }
