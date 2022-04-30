@@ -1,12 +1,10 @@
 package tela;
 import enums.Comando;
 import orquestrador.Orquestrador;
+
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.function.Predicate;
-
-import com.sun.tools.jconsole.JConsoleContext;
-import jdk.swing.interop.SwingInterOpUtils;
 
 public class ControladorDeGui extends Interface{
 
@@ -21,6 +19,7 @@ public class ControladorDeGui extends Interface{
         this.texto = "";
         setInstrumentos();
         setTituloInterface("Gerador De Música");
+        setLabelCheckBox("Baixar MIDI");
         this.abrirTela();
         this.monitorDeEventoConverter();
         this.monitorDeAnexoDeArquivo();
@@ -56,7 +55,7 @@ public class ControladorDeGui extends Interface{
 
             try {
                 orquestrador.defineInstrumento(this.getInstrumentoSelecionado());
-                orquestrador.orquestrar(texto);
+                orquestrador.orquestrar(texto, checkBoxMarcada());
             }catch (Exception e) {
                 e.printStackTrace();
             }

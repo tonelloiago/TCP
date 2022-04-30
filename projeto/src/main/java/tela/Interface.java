@@ -12,6 +12,7 @@ public class Interface extends JFrame {
 	//Componentes da interface
 	private JTextArea textArea;
 	private JTextField caminhoDoArquivoTextField;
+	private JCheckBox checkBoxDownload;
 	protected JComboBox<String> itens;
 	protected JButton converterButton;
 	protected JButton anexarArquivo;
@@ -31,12 +32,14 @@ public class Interface extends JFrame {
 		setConverterButton();
 		setAnexarArquivo();
 		setCaminhoDoArquivoTextField();
+		setCheckBox();
 
 		add(this.itens);
 		add(this.textArea);
 		add(this.converterButton);
 		add(this.anexarArquivo);
 		add(this.caminhoDoArquivoTextField);
+		add(this.checkBoxDownload);
 
 		setBounds(0,0, LARGURA, ALTURA);
 
@@ -58,6 +61,19 @@ public class Interface extends JFrame {
 			this.leitor.setTemArquivo(true);
 
 		}
+	}
+
+	private void setCheckBox() {
+		this.checkBoxDownload = new JCheckBox();
+		this.checkBoxDownload.setBounds(600, 200, 150, 30);
+	}
+
+	protected void setLabelCheckBox(String labelCheckBox) {
+		this.checkBoxDownload.setText(labelCheckBox);
+	}
+
+	protected boolean checkBoxMarcada() {
+		return checkBoxDownload.isSelected();
 	}
 
 	private void setTextAreaBorder() {
