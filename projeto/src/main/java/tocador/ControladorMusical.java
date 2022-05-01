@@ -39,13 +39,14 @@ public class ControladorMusical {
     private Consumer<VisaoDeComando> adicionaComando() {
         return visaoDeComando -> {
             final var comando = visaoDeComando.getComando();
+            final var repeticoes = visaoDeComando.getRepeticoes();
 
             if (validadorDeComando.eNota(comando)){
-                adaptadorMusical.adicionaNota(comando,visaoDeComando.getRepeticoes());
+                adaptadorMusical.adicionaNota(comando, repeticoes);
             }
 
             if (validadorDeComando.eComandoDeIncrementaInstrumento(comando)){
-                adaptadorMusical.incrementaInstrumento(visaoDeComando.getRepeticoes());
+                adaptadorMusical.incrementaInstrumento(repeticoes);
             }
 
             if (validadorDeComando.eComandoDeInstrumento(comando)){

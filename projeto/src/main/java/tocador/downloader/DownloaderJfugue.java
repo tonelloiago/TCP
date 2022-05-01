@@ -3,24 +3,39 @@ package tocador.downloader;
 import org.jfugue.midi.MidiFileManager;
 import org.jfugue.pattern.Pattern;
 import org.jfugue.player.Player;
-import tela.popup.DownloadPopup;
 
+import javax.swing.*;
+import javax.swing.filechooser.FileNameExtensionFilter;
+import javax.swing.filechooser.FileSystemView;
 import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.io.Writer;
-import java.lang.management.MemoryUsage;
 
 public class DownloaderJfugue {
 
     public static final String EXTENSAO_MIDI = ".midi";
 
     public static void downloadMusica(Pattern musicaABaixar) throws IOException {
-        final var nomeDoArquivo = DownloadPopup.solicitaArquivo();
+        JFileChooser fileChooser = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
+        var fileFilter = new FileNameExtensionFilter("Midi files","midi");
+
+        fileChooser.setFileFilter(fileFilter);
+        fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
+
+        if(JFileChooser.CANCEL_OPTION == fileChooser.showSaveDialog(null)){
+            return;
+        };
+
+        var arquivoMidi = fileChooser.getSelectedFile();
+        final var nomeDoArquivo = fileChooser.getSelectedFile().getAbsolutePath();
+
+        if (!nomeDoArquivo.endsWith(EXTENSAO_MIDI)){
+            arquivoMidi.delete();
+            arquivoMidi = new File(nomeDoArquivo+EXTENSAO_MIDI);
+        }
+
         final var player = new Player();
         final var sequence = player.getSequence(musicaABaixar);
-        final var arquivoMidi = new File(nomeDoArquivo + EXTENSAO_MIDI);
 
-        MidiFileManager.save(sequence, arquivoMidi);
+        MidiFileManager.save(sequence, arquivoMidi.getAbsoluteFile());
     }
 }

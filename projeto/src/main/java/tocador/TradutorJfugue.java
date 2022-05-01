@@ -11,6 +11,7 @@ public class TradutorJfugue implements TradutorAdaptador{
         if (validadorDeComando.eNota(comando)){
             return traduzNota(comando);
         }
+
         if (validadorDeComando.eComandoDeInstrumento(comando)){
             return traduzInstrumento(comando);
         }
