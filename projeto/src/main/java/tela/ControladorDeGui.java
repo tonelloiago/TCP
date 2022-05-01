@@ -81,7 +81,14 @@ public class ControladorDeGui extends Interface{
     }
 
     private Predicate<Comando> porInstrumentoSelecionado() {
-        return comando -> comando.name().equals(this.itens.getSelectedItem());
+        return comando -> {
+            var instrumentoSelecionado = getItemSelecionadoSemEspacos();
+            return comando.name().equals(instrumentoSelecionado);
+        };
+    }
+
+    private String getItemSelecionadoSemEspacos() {
+        return this.itens.getSelectedItem().toString().replace(" ", "");
     }
 
 }

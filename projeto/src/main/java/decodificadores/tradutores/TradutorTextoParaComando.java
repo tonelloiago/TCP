@@ -1,6 +1,5 @@
 package decodificadores.tradutores;
 
-import entidades.VisaoDeComando;
 import enums.Comando;
 
 import java.util.List;
@@ -43,11 +42,11 @@ public class TradutorTextoParaComando implements TradutorTextoComando{
         case '?':
             return AumentaOitava;
         case '\n':
-            return Bells;
+            return TubularBells;
         case ';':
-            return Flute;
+            return PanFlute;
         case ',':
-            return Organ;
+            return ChurchOrgan;
         default:
             return verificaCaracteresGerais(caracter);
     }
@@ -59,7 +58,7 @@ public class TradutorTextoParaComando implements TradutorTextoComando{
 
     private Comando verificaCaracteresGerais(Character caracter) {
         if (vogais.contains(caracter)){
-            return Horpischord;
+            return Harpsichord;
         }
         if (Character.isDigit(caracter)){
             return IncrementaInstrumento;

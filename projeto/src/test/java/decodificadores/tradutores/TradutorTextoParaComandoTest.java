@@ -59,7 +59,7 @@ class TradutorTextoParaComandoTest {
     void traduzVogal(){
         dadoCaracter('i');
         traduzCaracter();
-        entaoComandoTraduzidoE(Horpischord);
+        entaoComandoTraduzidoE(Harpsichord);
     }
 
     @Test
@@ -93,21 +93,21 @@ class TradutorTextoParaComandoTest {
     void traduzNovaLinha(){
         dadoCaracter('\n');
         traduzCaracter();
-        entaoComandoTraduzidoE(Bells);
+        entaoComandoTraduzidoE(TubularBells);
     }
 
     @Test
     void traduzPontoEVirgula(){
         dadoCaracter(';');
         traduzCaracter();
-        entaoComandoTraduzidoE(Flute);
+        entaoComandoTraduzidoE(PanFlute);
     }
 
     @Test
     void traduzVirgula(){
         dadoCaracter(',');
         traduzCaracter();
-        entaoComandoTraduzidoE(Organ);
+        entaoComandoTraduzidoE(ChurchOrgan);
     }
 
     @Test

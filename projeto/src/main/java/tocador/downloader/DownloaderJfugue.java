@@ -19,7 +19,8 @@ public class DownloaderJfugue {
         final var nomeDoArquivo = DownloadPopup.solicitaArquivo();
         final var player = new Player();
         final var sequence = player.getSequence(musicaABaixar);
+        final var arquivoMidi = new File(nomeDoArquivo + EXTENSAO_MIDI);
 
-        MidiFileManager.save(sequence,new File(nomeDoArquivo+EXTENSAO_MIDI));
+        MidiFileManager.save(sequence, arquivoMidi);
     }
 }
