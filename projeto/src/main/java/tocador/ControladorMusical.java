@@ -11,7 +11,6 @@ import java.util.function.Consumer;
 public class ControladorMusical {
     private final  AdaptadorMusical adaptadorMusical;
     private final ValidadorDeComando validadorDeComando;
-    private final List<Comando> instrumentos = List.of(Comando.Flute,Comando.Agogo,Comando.Bells,Comando.Organ,Comando.Horpischord);
 
 
     public ControladorMusical(AdaptadorMusical adaptadorMusical, ValidadorDeComando validadorDeComando) {
@@ -22,7 +21,9 @@ public class ControladorMusical {
     public void executaMusica(Musica musica, boolean salvaMusica){
         final var visaoDeComandos = musica.getSequenciaDeVisaoDeComandos();
 
-        visaoDeComandos.forEach(tocaNota());
+        visaoDeComandos.forEach(adicionaComando());
+
+        this.adaptadorMusical.tocaMusica();
 
         if (salvaMusica){
             this.adaptadorMusical.salvaMusica();
@@ -35,23 +36,30 @@ public class ControladorMusical {
         adaptadorMusical.defineInstrumento(comando);
     }
 
-    private Consumer<VisaoDeComando> tocaNota() {
+    private Consumer<VisaoDeComando> adicionaComando() {
         return visaoDeComando -> {
             final var comando = visaoDeComando.getComando();
+            final var repeticoes = visaoDeComando.getRepeticoes();
 
             if (validadorDeComando.eNota(comando)){
-                adaptadorMusical.tocarNota(comando,visaoDeComando.getRepeticoes());
+                adaptadorMusical.adicionaNota(comando, repeticoes);
             }
 
             if (validadorDeComando.eComandoDeIncrementaInstrumento(comando)){
-                adaptadorMusical.incrementaInstrumento(visaoDeComando.getRepeticoes());
+                adaptadorMusical.incrementaInstrumento(repeticoes);
             }
 
             if (validadorDeComando.eComandoDeInstrumento(comando)){
                 adaptadorMusical.defineInstrumento(comando);
             }
 
-            //adicionar casos de oitava, volume,etc
+            if (validadorDeComando.eComandoDeVolume(comando)){
+                adaptadorMusical.aumentarVolume();
+            }
+
+            if (validadorDeComando.eComandoDeOitava(comando)){
+                adaptadorMusical.aumentarOitava();
+            }
         };
     }
 

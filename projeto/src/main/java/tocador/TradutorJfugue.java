@@ -11,6 +11,7 @@ public class TradutorJfugue implements TradutorAdaptador{
         if (validadorDeComando.eNota(comando)){
             return traduzNota(comando);
         }
+
         if (validadorDeComando.eComandoDeInstrumento(comando)){
             return traduzInstrumento(comando);
         }
@@ -21,13 +22,13 @@ public class TradutorJfugue implements TradutorAdaptador{
         switch (comando){
             case Agogo:
                 return "114";
-            case Horpischord:
+            case Harpsichord:
                 return "7";
-            case Bells:
+            case TubularBells:
                 return "15";
-            case Flute:
+            case PanFlute:
                 return "75";
-            case Organ:
+            case ChurchOrgan:
                 return "20";
             default:
                 return "";

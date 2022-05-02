@@ -4,8 +4,9 @@ package tocador;
 import enums.Comando;
 
 public interface AdaptadorMusical {
-    void tocarNota(Comando comando);
-    void tocarNota(Comando comando,int repeticoes);
+    void adicionaNota(Comando comando);
+    void adicionaNota(Comando comando, int repeticoes);
+    void tocaMusica();
     void aumentarOitava();
     void aumentarVolume();
 

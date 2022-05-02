@@ -14,7 +14,9 @@ Repositorio para o desenvolvimento do projeto prático para a disciplina de Téc
 
 ## Rodar
 
-O arquivo .jar está disponivel na pasta target. Para build manual, utilizar `mvn clean install` para gerar .jar localmente.
+O arquivo .jar está disponivel. 
+
+Para build manual, rodar o comando `mvn clean install` na pasta `projetos` para gerar .jar localmente .
 
 ## Diagrama de Classes
 

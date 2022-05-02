@@ -54,12 +54,11 @@ public class Interface extends JFrame {
 
 		JFileChooser fileChooser = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
 
-		int achouArquivo = fileChooser.showOpenDialog(null);
+		var achouArquivo = fileChooser.showOpenDialog(null);
 
 		if (achouArquivo == JFileChooser.APPROVE_OPTION) {
 			this.leitor.setArquivoAnexado(fileChooser.getSelectedFile());
 			this.leitor.setTemArquivo(true);
-
 		}
 	}
 

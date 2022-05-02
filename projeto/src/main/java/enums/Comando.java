@@ -10,11 +10,11 @@ public enum Comando {
     Si,
     Volume,
     Agogo,
-    Horpischord,
+    Harpsichord,
     AumentaOitava,
-    Bells,
-    Flute,
-    Organ,
+    TubularBells,
+    PanFlute,
+    ChurchOrgan,
     IncrementaInstrumento,
     Silencio;
 }
